@@ -1,0 +1,241 @@
+Strings:
+
+A String is an object (not a primitive type).
+It is immutable — once created, it cannot be changed.
+Defined inside double quotes "...".
+
+String s = "hello";
+System.out.println(s.charAt(1)); // e
+
+What Does “Immutable” Mean?
+
+When we say strings are immutable, it means:
+Once a string object is created, it cannot be changed (modified) in memory.
+
+String s = "hello";
+System.out.println(s.hashCode());  // hash code of "hello"
+
+s = s + " world";
+System.out.println(s);             // "hello world"
+System.out.println(s.hashCode());  // different hash code
+✅ Notice: A new String object was created for "hello world", and s now refers to it.
+The old "hello" string still exists in memory (until garbage collected).
+
+How Java Implements Immutability
+String class is declared final:
+
+public final class String implements java.io.Serializable, Comparable<String>, CharSequence
+
+Being final means you cannot subclass String and change its behavior.
+Character data is stored in a private final array:
+private final char value[];
+
+The final keyword ensures the reference to the char[] cannot change after the string is created.
+Since it’s private, no external code can directly access or modify it.
+All string operations return a new object:
+Methods like concat(), substring(), replace(), etc., return new strings instead of modifying the original.
+
+String a = "Java";
+String b = a.concat(" Rocks!");
+System.out.println(a);  // "Java"
+System.out.println(b);  // "Java Rocks!"
+
+Why Are Strings Immutable in Java?
+
+There are four main reasons:
+
+1. Security
+
+Strings are used in sensitive places — like file paths, class loading, network connections, etc.
+
+If strings were mutable, someone could change "C:\\safe\\file.txt" to "C:\\evil\\file.txt" after validation.
+
+Immutability prevents such tampering.
+
+2. String Pool (Performance Optimization)
+
+Java maintains a String Pool (also called the intern pool) in the heap.
+
+Identical string literals point to the same object in the pool.
+
+String s1 = "Hello";
+String s2 = "Hello";
+System.out.println(s1 == s2);  // true (same reference)
+
+
+If strings were mutable, modifying s1 would also change s2 → which would break the whole pooling mechanism.
+
+3. Thread Safety
+
+Since strings cannot change, multiple threads can safely share the same string object without synchronization.
+
+4. Hash Code Caching
+
+Strings are often used as keys in HashMap or HashSet.
+
+The hash code of a string is computed from its characters and cached for reuse.
+
+If the string could change, its hash code would become invalid, breaking these data structures.
+
+🧠 Internal Behavior Example
+String str1 = "abc";
+String str2 = str1;
+str1 = str1.concat("def");
+
+System.out.println(str1); // "abcdef"
+System.out.println(str2); // "abc"
+
+
+→ str1 now points to a new string "abcdef".
+→ str2 still points to "abc".
+→ The original "abc" string remains unchanged.
+
+Concept	Explanation
+Immutability	Value of a String object cannot change after creation
+How	String is final, and its char[] value field is private final
+Why	Security, string pool optimization, thread safety, hash consistency
+Effect	Every modification creates a new String object
+
+
+We use JSON for APIs because it’s a simple, text-based, portable format — not because it’s immutable.
+But immutability of the JSON string during transport does help ensure data integrity and thread safety
+
+
+⚙️ 2. Common String Operations
+Operation	Example	Output
+Length	s.length()	5
+Char at index	s.charAt(0)	'h'
+Substring	s.substring(1, 4)	"ell"
+Concatenate	s + " world"	"hello world"
+Compare	s.equals("hello")	true
+Convert to char array	s.toCharArray()	['h','e','l','l','o']
+Change case	s.toUpperCase()	"HELLO"
+
+
+3. Reversing a String
+🔹 Using StringBuilder
+String s = "hello";
+String reversed = new StringBuilder(s).reverse().toString();
+System.out.println(reversed); // olleh
+
+🔹 Using Loop
+String s = "hello";
+String rev = "";
+for (int i = s.length() - 1; i >= 0; i--) {
+    rev += s.charAt(i);
+}
+System.out.println(rev);
+
+🔁 4. Check if String is a Palindrome
+public class Main {
+    public static boolean isPalindrome(String s) {
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) return false;
+            i++; j--;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("madam")); // true
+    }
+}
+
+🔤 5. Count Character Frequencies
+Using HashMap
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String s = "banana";
+        Map<Character, Integer> freq = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            freq.put(c, freq.getOrDefault(c, 0) + 1);
+        }
+
+        System.out.println(freq); // {a=3, b=1, n=2}
+    }
+}
+
+🔀 6. Check if Two Strings are Anagrams
+import java.util.Arrays;
+
+public class Main {
+    public static boolean isAnagram(String a, String b) {
+        if (a.length() != b.length()) return false;
+
+        char[] arr1 = a.toCharArray();
+        char[] arr2 = b.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        return Arrays.equals(arr1, arr2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isAnagram("listen", "silent")); // true
+    }
+}
+
+🔍 7. Substring Search (Naive)
+public class Main {
+    public static boolean containsSubstring(String s, String p) {
+        int n = s.length(), m = p.length();
+        for (int i = 0; i <= n - m; i++) {
+            if (s.substring(i, i + m).equals(p)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(containsSubstring("hello", "ell")); // true
+    }
+}
+
+🌸 8. Longest Common Prefix
+public class Main {
+    public static String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) return "";
+        String prefix = strs[0];
+
+        for (int i = 1; i < strs.length; i++) {
+            while (!strs[i].startsWith(prefix)) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.isEmpty()) return "";
+            }
+        }
+        return prefix;
+    }
+
+    public static void main(String[] args) {
+        String[] arr = {"flower", "flow", "flight"};
+        System.out.println(longestCommonPrefix(arr)); // fl
+    }
+}
+
+📦 9. String Compression (e.g., "aaabbcc" → "a3b2c2")
+public class Main {
+    public static String compress(String s) {
+        StringBuilder sb = new StringBuilder();
+        int count = 1;
+
+        for (int i = 1; i <= s.length(); i++) {
+            if (i < s.length() && s.charAt(i) == s.charAt(i - 1)) {
+                count++;
+            } else {
+                sb.append(s.charAt(i - 1));
+                if (count > 1) sb.append(count);
+                count = 1;
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(compress("aaabbcc")); // a3b2c2
+    }
+}
