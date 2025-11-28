@@ -1,0 +1,500 @@
+Day 1:
+Cloud computing
+
+delivery -delivery of computing services - server , storage , DB , networking , software
+cloud- delivery of services is done over internet 
+payment mode- pay how much used 
+allows for faster innovation 
+
+Application
+manage servers , storage , networks , data centers and software's runs
+
+traditional Data centers:
+less management, investment , operations and focus on business
+
+cloud service models:
+Infrastructure as service
+platform as services
+software as services
+
+
+Public cloud:
+Investment - no need capital investment, Pay as you go model
+management- no need to manage underlying physical 
+reachability- can be there across worlds  
+easy of use
+
+Private Cloud:
+mostly running apps for business or organization
+control
+security 
+data 
+flexibility 
+
+Hybrid cloud:
+combo of both public and private cloud
+current investment
+extension 
+data
+migration
+
+economies of scale
+basics- ability to carry our tasks more efficiently or lower cost per unit when operating at large scale
+discount- demand increases, get hardware at discount prices 
+benefit- discounts passed to customer
+service cost- number increases, cost decreases
+
+cost :
+server cost, storage cost , software support 
+data center cost -cooling
+
+Benefits :
+scalability
+disaster recovery - east / west US region to keep VM and storage accounts
+Elasticity: scale based on demand 
+fault tolerance
+
+Day 2:
+
+Microsoft Azure
+1 Service
+2 subscription 
+3 resource
+4 resource group
+
+Azure Architecture and services - Azure compute
+
+1. Virtual Machine - allows to host the VM without need of buying and maintaining physical hardware
+VM services:
+a) compute
+b) operating system 
+c) lifecycle 
+d) workload
+VM Advantages:
+less management 
+less investment 
+less operation 
+configure
+VM Deployment: 
+Virtual network 
+public Ip address
+network security group
+OS Disk
+VM Types:
+General purpose
+compute optimized
+memory 
+storage 
+VM cost:
+subscription , Virtual network , network interface , Network security group - free of cost
+VM running , OS Disk and public IP - pay 
+explore Pricing options : pay as go , Azure saving plan , reserved instance and spot
+VM shutdown or deallocation - only de allocation , we wont pay , shutdown VM still pays
+
+Availability Sets:
+protect your machines against infrastructure failures.
+
+How it works:
+create fault domains- common power supply
+update domains- reboot if VM is down 
+
+Availability Zones:
+ availability of app by protecting from datacenter failures 
+
+Azure Dedicated Host:
+running physical server on data center
+
+VM scalability:
+resize VM size (increase CPU size)- vertical scaling/scale up 
+add more VM - horizontal scaling/scale out 
+
+Azure Web APP:
+An Azure App Service Plan defines the compute resources for hosting your web apps, APIs, or other services in Azure. This guide explains how to manage and configure App Service Plans using the Azure CLI.
+service plans:
+free, shared
+basic, standard premium
+isolated
+
+Day 3: 
+Azure Functions:
+Serverless compute service. service allows you to run small pieces of code as functions 
+develop and upload the code to Azure function
+
+its for event based application , to run certain function at a time 
+
+
+Pricing plans - consumption , app service plan and premium 
+
+Azure Virtual Desktop: desktop for App virtualization
+
+Networking
+
+Virtual Network:
+Isolated
+Managed
+Resources
+Internet
+
+Security Groups
+Network Security Groups : used to filter the traffic between azure resources in azure virtual machine
+rules we can define 
+
+Application Security Groups: extension of NSG . 
+
+Connectivity:
+Virtual Network Peering:
+
+one Virtual network in one machine and other in other machine . each isolated in nature, we can cant connect to each private Ip's. so we use Virtual network peering to connect the virtual network in same or across region
+
+ExpressRoute
+
+Load Balancer:
+Distribute incoming load traffics for backend machines
+Feature:
+Pricing 
+SLA
+Backend machines
+support for zone
+components :
+front end ip 
+backend pool
+health probe
+load balancer rules
+
+DNS:
+Contact machine by IP address , its not easy so we can map to domain name for the IP
+DNS server manages it
+
+Container instance:
+container engine to package the code inside the container. Multiple services can installed on container.
+
+Day 4:
+Azure Storage :
+store as Blob, queue , file and table
+
+Blob storage - large amount of structured data as binary data
+
+create storage containers, inside that create blob
+
+File service: hosting file shares on cloud, mount on windows, Linux and MAC
+
+Queue Storage:
+storing large amounts of message
+access by HTTP/HTTPS protocols
+Message driven/decoupling architecture
+Use service bus storage to store queue.
+transaction triggers message to queue , multiple listener will be there to pickup to process. once processed only we can delete the message in queue.
+
+In payment we use queue based until transaction process , message will be there in queue.
+
+Table Storage:
+Non relational structured data. 
+store as key value pair
+
+Data storage prices: premium , hot , cool and achieve
+access tiers: set the rules to define the access tier. hot, cool, cold  and achieve
+hot- data accessed frequently
+cool- data accessed infrequently and stored at least 30 days
+cold -data accessed infrequently and stored at least 90 days
+achieve- data accessed infrequently and stored at least 180 days
+
+
+Data Redundancy
+locally redundant storage - single physical location
+zone redundant storage- stored across 3 availability zone in primary region
+geo redundant storage- data copied synchronously 3 times within physical region using LRS, then copies asynchronously to single physical location in secondary region
+geo zone redundant storage- copied synchronously across 3 availability zones in primary region using ZRS. then asynchronously 
+to single physical location in secondary region
+
+data center region down means , go for geo redundant storage. in case of disaster recovery , one region goes down, get from other region. 
+geo zone redundant storage- it can recovery from own region from different data center from same region. then it checks on other data region.
+
+Azure File sync:
+sync commonly accessed files onto local window server, so user can fetch from local machine to avoid latency in accessing files
+
+Day 5:
+
+Data Bases:
+storing, retrieving and archiving data 
+Traditional: application on one VM and DB server on other VM. access from one VM to other . IN Db we have DB , data's. Patch management also there
+
+Azure SQL database : PAs  system
+its DB is managed by cloud server. its cloud version of SQL server
+
+you own the server for DB, so
+Full control
+Security
+Any version
+Integration 
+
+Limitation of own server downside 
+Management
+Backups
+High Availability
+Patching
+
+Azure SQL database - Pricing tiers:
+DTU - DB transaction unit model
+blended measure of CPU, memory , I/O
+Types: Basic, Standard and premium
+
+Vcore based purchasing model.  
+
+Azure SQL database - Managed Instance:
+PAS service
+provides native integrations with Azure virtual network service. Created DB outside of VM. 100% compatibility with latest SQL server feature. 
+
+Azure database for MySQL:
+open source relational DB management.
+query data using SQL
+store data in form of tables
+
+Azure Database for PostgreSQL
+free and open source relational DBMS
+supports ACID concepts 
+view, foreign keys , triggers and Stored procedure.
+
+NoSQL Databases: to store large amount of data . no proper schema, some row have no column, some column have no row kind of data , we can use NOSQL.
+
+Azure cosoms- manged NoSQL, relational and vector DB. get fast access to Data
+NoSQL- Data stored in document format 
+MongoDB- Stores as BSON format
+PostgraeSQL- managed open source RDBMS with better performance.
+apache Cassandra- data stored based on column oriented
+Gremlin- data stored as graph format
+table- data stored as key value pair.
+
+Data Analytics:
+
+Data Lake: raw data stored like vast data, use it for streaming , analysis , 
+
+ETL: process for extracting data (extract , transform and load)
+
+Data Warehouse architecture: storing data in transformed format
+data source -> data staging (ETL) -> data storage (Data warehouse and data marts)-> data presentation (data analytics , reporting and data mining )
+
+Data warehouse + Data lake = Data Lakehouse
+
+Enterprise Data engineering:
+
+Streaming data in terms of logs, files or other files /application sending data -> ingest data -> store data -> use apache spark to prepare and train data -> serve your data and build report via power BI
+
+Microsoft Fabric: End to end analytics platform. data processing m ingesting data , data transformation and report building.
+Used in Data science, AI and data engineering.
+
+Azure Synapse Analytics:
+Enterprise analytics service.
+host data  warehouse and get insights on data being hosted. 
+spark technology for big data.
+uses pipeline for data integration
+  
+Azure Databricks:
+tools that can used for building deploying m sharing and maintaining enterprise grade data solutions.
+process, stores, clean and analyze data
+Interactive notebooks, data ingestion and compute management.
+Ingest data , process data , work with SQL  , data exploration, machine learning , security and governance and visualizations. 
+
+Data Lakehouse:
+transactional support - atomicity, consistency , isolation and durability .
+open data - data in different format
+schema management - power of structure the data 
+data governance - tracks data and ingesting right data 
+
+Scenarios 2:
+1. host web application based on Db and app w.r.t to VM's
+2. Making use of services in Azure storage account
+
+
+Day 6:
+Azure Architecture and services - other services
+Traffic Manager:
+DNS based traffic load balancer.
+ability to distribute traffic across public endpoints and these endpoints could be spread across different azure regions
+Azure endpoints: services hosted in azure.
+External endpoints: services hosted outside of azure.
+Nested endpoints: combo of traffic manager profiles
+Different methods:
+priority routing method- primary is not available go to secondary 
+weighted routing method- routed based on different weights
+
+
+Azure content delivery network :
+helps to deliver content efficiently to end users across the world
+makes use of edge server across the world to deliver content to users
+place azure CDN profile in front of web endpoint
+
+Azure DevOps:
+work of software development and IT operations
+
+Plan->code->build->test->release->deploy-> operate->monitor
+
+Azure Boards: plan and track various work items during entire development process like jira board
+
+Azure repos: manage repos like git hub repo
+
+Azure Build pipelines: continuous Integration, continuous development
+
+Azure Bot : Bot service
+
+Azure test plans: manual testing via testing tools
+
+Azure Artifacts: maven , npm , Nuget
+
+
+Azure DevTest Labs:
+Virtual machine as Lab environment
+
+Machine Learning : AI that uses algorithms to analyze existing data and discover patterns in data
+
+Algorithm + Big Data = Machine Learning
+
+Azure Machine Learning:
+used by data scientist  and engineers to build machine learning products
+
+Azure Cognitive Service:
+Renamed as Azure AI service, build AI based application, different categories - vision , speech , language and decision
+
+Azure AI Vision :
+generate captions
+detect objects
+optical character recognition.
+
+Azure Key Vault: storing and accessing secrets
+
+Azure Logic app: build workflows
+trigger and action
+
+Azure Batch : large scale parallel and high performance computing batch jobs
+
+
+Day 7:
+
+
+Authentication and Authorization :
+
+Authorization based on role based one.
+
+assign roles at different levels - individual level , resource group  level and subscription level.
+
+Azure Active directory licensing :
+free - basics reports
+premium P1 - dynamic groups , more hybrid 
+premium p2- azure identity protection , privileged identity management
+
+MFA also available
+
+Azure AD conditions Access:
+allow users to access based on below categories
+Conditions 
+signals
+Access
+Enforced
+
+Entra ID documentation:
+
+Azure Active Directory Domain Services:
+feature as domain join , group policies 
+
+Microsoft defender for cloud
+security posture and cloud workload protection platform. Monitor azure resources , Amazon web services resources
+
+Microsoft sentinel:
+hunt the suspicious activities at scale.
+respond to incident rapidly
+
+Visibility, analytics, hunting ,incidents and automation.
+
+
+DDos protection
+
+like protect the internet suspicious
+
+Azure firewall:
+
+protect workload running within azure virtual network
+
+Zero trust principle: security strategy
+
+verify explicitly 
+use least privilege access
+assume breach
+
+
+Day 8:
+Azure management and Governance:
+
+Pricing Calculator: portal to estimate the price for VM, SQL and other services
+
+Cost Management: allows to control cost of environment and assign budgets
+
+Basic, developer, standard , professional direct and unified enterprise.
+
+Support Updates: services updates for each features details , when we can use the updates 
+
+Cloud Adoption Framework : step by step guidance for cloud adoption success.
+
+CAF strategy-> CAF plan -> CAF Ready -> CAF adopt ->CAF govern , Secure and mange
+
+Service Trust: how Microsoft protect the data and mange cloud data security and compliance for organization
+Norms need to follow. Auditor will check the details and check compliance details.
+
+Resource Tags: company  have different resource groups  for managing their resources. Resources could map to different environment 
+
+Management Groups: Manage different subscriptions like research , main , logistics and HR in IT company.
+role based access control, multiple policy can be created.
+
+ Azure Policy :
+service can be used to assess the compliance of your resources
+inbuilt policy definitions or create own policy 
+
+Resources locks - user dont accidently delete the resources
+2 types 
+cannot delete 
+readonly
+
+Azure blueprints:
+saves either management group or subscription.
+role assignments- specific role to assign
+resource groups - certain resource group to 
+policy assignment 
+ARM templates
+Stages:
+Publishing - publish the blueprint
+Assignment - subscribe to blueprint 
+
+
+Different tools:
+Azure powershell: manage and administrate azure based resource
+
+Azure CLI: across platform command line tool to manage and administrate azure based resource
+
+ARM templates: define your resources as code.
+
+Azure ARC
+seamless governance management 
+
+Azure Advisor:
+get recommendations based on resources deployed as part of azure subscription
+reliability 
+security 
+performance
+cost
+operational excellence
+
+Azure service health
+
+Azure Monitor: allows to collect data for your resource in azure and on premises resource.
+alerts can be used
+
+Azure Insights:
+monitoring
+aspects
+support
+application
+integration
+users
+
+
+
+
+
