@@ -1,0 +1,129 @@
+features, tips and tricks
+inline comments:
+inline comment to generate input tag like username in html page and validate the username with our own requirement using regex in JavaScript . create own rule in comment and it generate code.
+
+context:
+giving comments to check code - will not get any suggestion from copilot chat
+provide context to get the suggestion 
+1. open file and ask anything
+2. add  workspace in context
+3. add context with the file
+
+prompts:
+we can provide prompts with example and ask, it gives suggestion if there any built in function available or third party library 
+
+if we ask like any built in function available or third party library  without example, it will provide the suggestion
+
+unit test case:
+select code and context with file name, it generate test cases with plan of every scenarios and generate the code.
+
+explain code:
+@workspace/explain and  select the code to get the explanation of code with example and explanation for each example case.
+
+Assist with terminal error:
+any error in terminal of vs code , we can get explanation for the error and solution for the error using @terminal command or using magic icon  
+provide commands to run and select the terminal icon , it will get execute
+
+commit message:
+copilot provide commit message when we click magic icon on commit message.
+
+copilot chat in mobile:
+app is there to get GitHub copilot chat, will have repo details for our account.
+. its like chatgpt
+get suggestion for code using chat  and commit change in mobile 
+
+public repository suggestion:
+GitHub have vast amount of repo as reference to provide suggestion.
+we can disable it
+under settings/copilot, suggestion matching public repo - allow /blocked. we can provide access for developers to change settings in enterprise
+
+once we write the code , we can check view/output/ GitHub copilot log will provide details for the code that matches to reference in any other repo 
+
+refactor code:
+refactor the selected code with modern <language > , it will give plan and code, we can replace it . reduces line also.
+
+Generate backend code:
+provide proper prompt with your requirement include less third party jar usages , highlight vulnerabilities and provide solution for that.
+ also prompt to get how to run it on server.
+
+detect vulnerabilities:
+
+prompt to detect vulnerability and solution
+
+learning tool:
+ we can create quiz about our workspace to learn the project
+provide prompt to generate the quiz for the selected files
+
+Generate Dummy Data:
+prompt to generate dummy data with our requirement.
+
+customization in VS code:
+@vscode - to ask question about Vs code tools available inside Vscode like change theme of the app
+
+GitHub copilot CLI:
+details for CLI tool installation  from internet 
+in terminal , login with Gh account 
+install GitHub CLI extension 
+explain command -  for getting details about command.
+Suggest command - provide prompt to get suggestion 
+
+
+Vs code snippet 
+auto populate for loop array , change the index is easier
+code ->settings-> configure snippet and select js, create snippet with our own requirement details along  prefix as unique value. when we provide the prefix value(generate dummy data) in coding , and provide the details(generate id, data type with files- we can replace the data type and field with our customization )  to create , it will create the data based on our requirement.
+
+prompt Shortcuts:
+1)select code and right click copilot , under that below icons there
+
+add file/add select code -  select code/file as context in chat
+
+start in editor - inline comment option
+
+any error , select fix command - will fix the code compiler error
+
+explain this - explain the code 
+
+generate test- generate unit test case
+
+generate docs: generate documents like /* details about method on top of method */
+
+2) 
+#selection- select code , provide #selection in chat to determine the for the selected lines of code
+#editor - visible source code in active editor
+#file - provide the file name like attaching context  
+#terminalLastcommand- shows last command executed in terminal
+#terminalSelection - select the command in terminal and we can do explain or execute 
+#VsCodeApI- information based on code API 
+
+3)/help - gives details about shortcuts and commands
+
+convert Js code to phython 
+install phyton extension 
+#selection with  select code and give prompt to convert into python code.
+
+other IDEs
+vscode and copilot owned by Microsoft 
+we can use copilot in other IDE as weel like PyCharm.
+
+change different model like gpt 4 ,5 , 4o to get output
+
+copilot edits- 
+add files as input in edit with copilot 
+prompt provide based on requirement that need to be edited
+
+
+
+For react developer -mini course
+@workspace /new - new react js app
+
+Other AI tools for web developer
+Claude AI- better for UI than chatgpt
+vercel vo - specific for React
+we can fork or copy the coe to our repo
+cursor AI-
+
+GitHub copilot - Agent mode
+
+
+AI for Copilot, cursor AI and chat gpt:
+Git hub copilot:
