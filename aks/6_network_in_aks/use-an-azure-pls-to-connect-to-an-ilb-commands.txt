@@ -1,0 +1,51 @@
+k create deploy nginx-ilb-pls --replicas 2 --image nginx
+
+k apply -f - <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ilb-pls-svc
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/azure-pls-create: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: nginx-ilb-pls
+EOF
+
+k get svc
+
+az group create -n consumer-env-rg -l eastus
+
+az network vnet create --resource-group consumer-env-rg --name consumer-vnet --address-prefixes 10.224.0.0/12 --subnet-name consumer-subnet --subnet-prefixes 10.224.0.0/16
+
+az network nsg create --resource-group consumer-env-rg --name consumer-nsg
+
+export MY_IP=$(curl ifconfig.me)
+
+az network nsg rule create --resource-group consumer-env-rg --nsg-name consumer-nsg --name allow-ssh-my-ip --priority 100 --source-address-prefixes $MY_IP --destination-port-ranges 22 --access Allow
+
+az network vnet subnet update --resource-group consumer-env-rg --vnet-name consumer-vnet --name consumer-subnet --network-security-group consumer-nsg
+
+az vm create --resource-group consumer-env-rg --name consumer-vm --image Ubuntu2204 --authentication-type password --admin-username azureuser --vnet-name consumer-vnet --subnet consumer-subnet
+
+AKS_INFRA_RG=$(az aks show --resource-group aks-rg --name aks --query nodeResourceGroup -o tsv)
+
+AKS_PLS_ID=$(az network private-link-service list -g $AKS_INFRA_RG --query "[].id" -o tsv)
+
+az network private-endpoint create \
+  -g consumer-env-rg \
+  --name aks-pe \
+  --vnet-name consumer-vnet \
+  --subnet consumer-subnet \
+  --private-connection-resource-id $AKS_PLS_ID \
+  --connection-name connect-to-aks-svc
+
+ssh azureuser@<vm-public-ip>
+
+curl <private-endpoint-nic-ip> #from the vm
+
+k delete svc nginx-ilb-pls-svc
