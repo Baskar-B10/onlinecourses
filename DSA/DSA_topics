@@ -1,0 +1,76 @@
+Arrays
+
+
+ArrayList (dynamic arrays in Java)
+
+Common problems: Reverse array, Rotate array, Max Subarray Sum
+
+🔹 Strings
+
+String, StringBuilder, StringBuffer
+
+Palindrome check, Anagram check, String compression
+
+🔹 Linked List
+
+Singly, Doubly, Circular Linked Lists
+
+Reverse Linked List, Detect loop (Floyd’s Cycle), Merge two lists
+
+🔹 Stack and Queue
+
+Using arrays and LinkedList
+
+Use Java's Stack, Queue, and Deque classes
+
+Balanced parentheses, Next Greater Element
+
+🔹 Recursion
+
+Factorial, Fibonacci, Tower of Hanoi
+
+Backtracking problems (N-Queens, Sudoku)
+
+🔹 Sorting Algorithms
+
+Bubble, Selection, Insertion, Merge, Quick, Heap Sort
+
+🔹 Searching
+
+Linear Search, Binary Search (Iterative & Recursive)
+
+🔹 Hashing
+
+HashMap, HashSet
+
+Frequency count, 2Sum Problem, Longest Consecutive Sequence
+
+🔹 Trees
+
+Binary Tree, Binary Search Tree
+
+Inorder, Preorder, Postorder traversals
+
+Lowest Common Ancestor, Height, Diameter
+
+🔹 Heaps
+
+Priority Queue in Java (PriorityQueue class)
+
+Heap Sort, Kth largest/smallest element
+
+🔹 Graphs
+
+Representations: Adjacency Matrix/List
+
+BFS, DFS, Dijkstra, Topological Sort, Union-Find
+
+🔹 Greedy Algorithms
+
+Activity Selection, Huffman Coding, Job Scheduling
+
+🔹 Dynamic Programming (DP)
+
+0/1 Knapsack, Longest Increasing Subsequence (LIS)
+
+Matrix Chain Multiplication, Coin Change
