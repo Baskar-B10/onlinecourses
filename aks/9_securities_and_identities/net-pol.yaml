@@ -1,0 +1,33 @@
+#please remove "#" as per the steps in the video
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: demo-policy
+  namespace: demo
+spec:
+  podSelector:
+    matchLabels:
+      run: server
+  policyTypes:
+    - Ingress
+#    - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: client
+    ports:
+    - port: 80
+      protocol: TCP
+#  egress:
+#    - to:
+#        - ipBlock:
+#            cidr: 147.75.40.148/32
+#    - to:
+#        - namespaceSelector: {}
+#          podSelector:
+#            matchLabels:
+#              k8s-app: kube-dns
+#      ports:
+#        - port: 53
+#          protocol: UDP
