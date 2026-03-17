@@ -1,0 +1,30 @@
+Agentic AI
+
+Day1 : dint listen properly
+
+Day2:
+
+https://github.com/syedmahmoodiagents/BigData/blob/main/Structured_output.ipynb
+
+https://github.com/syedmahmoodiagents/Agents
+
+https://github.com/syedmahmoodiagents/Agents/blob/main/LLM_Messages.ipynb
+
+Day 3:
+
+download :VSCode, Ollama
+
+HumanMessgae : question we ask
+content will again and again will fetch from AImessage , toolmessage , systemmessage and give the proper content using react and wiki tools
+
+LLM still take agentic rule
+
+dukduckgosearchRun - like search engine
+
+search_ddgo - tool agent
+
+missed one hour class
+
+Day 4:
+
+
