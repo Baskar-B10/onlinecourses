@@ -1,0 +1,105 @@
+Install docker :https://docs.docker.com/engine/install/
+
+AKS pricing: https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/
+
+Aks free account: https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account?icid=azurefreeaccount
+
+Aks pricing calculator: https://azure.microsoft.com/en-us/pricing/calculator/?service=kubernetes-service
+
+Deploy AKS service:https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-powershell
+Inatsll Azure CLI on windows :https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest&tabs=powershell&pivots=winget
+Az.Azure powershell commands:https://www.powershellgallery.com/packages/Az.Aks/7.1.1
+Az.Azure module commands: https://learn.microsoft.com/en-us/powershell/module/az.aks/?view=azps-15.3.0&viewFallbackFrom=azps-10.3.0
+
+docker bridge GitHub:https://github.com/Azure/AKS/issues/3534 
+
+kubectl node shell-https://github.com/kvaps/kubectl-node-shell
+connect to AKS noode:https://learn.microsoft.com/en-us/azure/aks/node-access
+debug kuberneetes nodes with crictl:https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/
+customize coredns:https://learn.microsoft.com/en-us/azure/aks/coredns-custom#enable-dns-query-logging
+support policies for AKS :https://learn.microsoft.com/en-us/azure/aks/support-policies
+limit aks firewall:https://learn.microsoft.com/en-us/azure/aks/limit-egress-traffic?pivots=system#background
+public std load balancer:https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard
+core concepts :https://learn.microsoft.com/en-us/azure/aks/core-aks-concepts#fully-managed-resource-group-preview
+stop and start feature:https://learn.microsoft.com/en-us/azure/aks/start-stop-cluster?tabs=azure-cli
+deploy and manage services from marketplace:https://learn.microsoft.com/en-us/azure/aks/deploy-marketplace?tabs=azure-portal
+krew:https://krew.sigs.k8s.io/docs/user-guide/quickstart/
+
+use system pools:https://learn.microsoft.com/en-us/azure/aks/use-system-pools?tabs=azure-cli
+node shwll-https://github.com/kvaps/kubectl-node-shell
+node access-https://learn.microsoft.com/en-us/azure/aks/node-access
+az vmss run command-https://learn.microsoft.com/en-us/cli/azure/vmss/run-command?view=azure-cli-latest#az-vmss-run-command-invoke
+az run command-https://learn.microsoft.com/en-us/azure/virtual-machines/linux/run-command
+azure Linux documentation -https://learn.microsoft.com/en-us/azure/azure-linux/
+azure containers for linux-https://techcommunity.microsoft.com/blog/linuxandopensourceblog/introducing-the-azure-linux-container-host-for-aks/3824101
+azure Linux video:https://www.youtube.com/watch?v=AKjgrveI9ww&t=6s
+connect to windows node:https://learn.microsoft.com/en-us/azure/aks/node-access#create-the-ssh-connection-to-a-windows-node
+customize node configure:https://learn.microsoft.com/en-us/azure/aks/custom-node-configuration?tabs=linux-node-pools
+ephermol os:https://learn.microsoft.com/en-us/azure/aks/core-aks-concepts#ephemeral-os
+https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks
+default os sizing:https://learn.microsoft.com/en-us/azure/aks/core-aks-concepts#default-os-disk-sizing
+spot node pool:https://learn.microsoft.com/en-us/azure/aks/spot-node-pool
+use GPU:https://learn.microsoft.com/en-us/azure/aks/use-nvidia-gpu?tabs=add-ubuntu-gpu-node-pool
+node pool snapshot:https://learn.microsoft.com/en-us/azure/aks/node-pool-snapshot
+resize node pool:https://learn.microsoft.com/en-us/azure/aks/resize-node-pool?tabs=azure-cli
+
+Kubernet network basic:https://learn.microsoft.com/en-us/azure/aks/concepts-network#kubenet-basic-networking
+configure:https://learn.microsoft.com/en-us/azure/aks/configure-kubenet
+CNI basics:https://learn.microsoft.com/en-us/azure/aks/concepts-network#azure-cni-advanced-networking
+CNI configure:https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni?tabs=configure-networking-portal
+CNI overlay:https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl
+load balancer:https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard
+custom network :https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/connectivity/custom-nsg-blocks-traffic
+internal load balancer:https://learn.microsoft.com/en-us/azure/aks/internal-lb?tabs=set-service-annotations
+create private link to LB:https://learn.microsoft.com/en-us/azure/aks/internal-lb?tabs=set-service-annotations#connect-azure-private-link-service-to-internal-load-balancer
+vnet peering:https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview
+sna:https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections
+outbound types:https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype
+aks nat gateay-https://learn.microsoft.com/en-us/azure/aks/nat-gateway
+limit traffic:https://learn.microsoft.com/en-us/azure/aks/limit-egress-traffic?pivots=system
+protect firewall:https://learn.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service
+http proxy support:https://learn.microsoft.com/en-us/azure/aks/http-proxy?pivots=azure-cli
+
+azure vnet config:https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration
+api server authorize:https://learn.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges?pivots=azure-cli
+api server with vnet:https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration
+private cluster:https://learn.microsoft.com/en-us/azure/aks/private-clusters
+acess private cluster:https://learn.microsoft.com/en-us/azure/aks/access-private-cluster
+
+enable login:https://learn.microsoft.com/en-us/azure/aks/enable-authentication-microsoft-entra-id
+azure rbac:https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?tabs=azure-cli
+custom role:https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?tabs=azure-cli#create-custom-roles-definitions
+practice rbac:https://learn.microsoft.com/en-us/azure/aks/azure-ad-rbac?tabs=portal
+local accounts:https://learn.microsoft.com/en-us/azure/aks/enable-authentication-microsoft-entra-id#disable-local-accounts
+
+managed identity:https://learn.microsoft.com/en-us/azure/aks/use-managed-identity
+service principle:https://learn.microsoft.com/en-us/azure/aks/kubernetes-service-principal?tabs=azure-cli
+https://learn.microsoft.com/en-us/azure/aks/kubernetes-service-principal?tabs=azure-cli&pivots=azure-cli
+rotate credentials :https://learn.microsoft.com/en-us/azure/aks/update-credentials
+certificate in AKs:https://learn.microsoft.com/en-us/azure/aks/certificate-rotation
+network policies:https://learn.microsoft.com/en-us/azure/aks/use-network-policies
+azure key vault provider :https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
+autorotation:https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver#enable-and-disable-autorotation
+azure policies for kubernttes:https://learn.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes
+feature avaiablility:https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-containers?tabs=azureva%2Cazurert%2Cazurespm%2Cazurecssc%2Cawsnet
+hardening:https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction#hardening
+container recommendation:https://learn.microsoft.com/en-us/azure/defender-for-cloud/plan-multicloud-security-get-started#container-recommendations
+runtime protection:https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction#run-time-protection-for-kubernetes-nodes-and-clusters
+container alerts:https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference#alerts-k8scluster
+azure defender :https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-architecture?tabs=defender-for-container-arch-aks#architecture-for-each-kubernetes-environment
+enable defender profile:https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-deployment-overview?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#deploy-the-defender-profile
+apparmor in azure:https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-cluster-security?tabs=azure-cli#app-armor
+seccomp in azure:https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-cluster-security?tabs=azure-cli#secure-computing
+
+
+
+
+
+
+
+
+
+
+
+
+
