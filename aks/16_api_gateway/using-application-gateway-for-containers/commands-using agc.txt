@@ -1,0 +1,65 @@
+bash deploy-aks.sh
+
+bash prepare-environment-for-the-application-gateway-for-containers.sh
+
+k get crd
+
+k create ns alb-test-infra
+
+cat alb.yaml
+
+k apply -f alb.yaml
+
+k get applicationloadbalancer alb-test -n alb-test-infra -o yaml
+
+cat resources.yaml
+
+k apply -f resources.yaml
+
+k get pod,svc -n test-infra
+
+k get gatewayclass
+
+cat gateway.yaml
+
+k apply -f gateway.yaml
+
+k get gateway gateway-01 -n test-infra -o yaml
+
+cat httproute.yaml
+
+k apply -f httproute.yaml
+
+k get httproute traffic-split-route -n test-infra -o yaml
+
+k get gateway gateway-01 -n test-infra
+
+fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
+
+echo $fqdn
+
+while true; do curl -s -k "http://$fqdn" >> curlresponses50-50.txt ;done
+
+cat curlresponses50-50.txt| grep -c "backend-v1"
+
+cat curlresponses50-50.txt| grep -c "backend-v2"
+
+k edit httproute traffic-split-route -n test-infra #change to 99-1 ratio
+
+while true; do curl -s -k "http://$fqdn" >> curlresponses99-1.txt; done
+
+cat curlresponses99-1.txt| grep -c "backend-v1"
+
+cat curlresponses99-1.txt| grep -c "backend-v2"
+
+k create deploy nginx --image nginx
+
+k expose deploy nginx --port 80 --name nginx-svc
+
+k get ingressclass
+
+cat ingress.yaml
+
+k apply -f ingress.yaml
+
+k get ingress ingress-01 -o yaml
