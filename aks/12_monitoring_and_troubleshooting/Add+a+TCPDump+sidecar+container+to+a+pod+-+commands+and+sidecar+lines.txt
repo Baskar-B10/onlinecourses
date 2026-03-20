@@ -1,0 +1,20 @@
+k edit deploy mariner
+
+#add the following under spec.template.spec.containers
+      - name: tcpdump
+        image: docker.io/corfr/tcpdump
+        args: ["-C", "100", "-W", "20", "-v", "-w", "/data/dump"]
+
+k exec -it mariner-84877946c5-s8xtr -c tcpdump -- sh
+
+cd data
+
+watch ls -lh
+
+k exec -it mariner-84877946c5-s8xtr -c core -- bash
+
+curl kubernetes.io
+
+curl microsoft.com
+
+kubectl cp mariner-84877946c5-s8xtr:/data/dump00 -c tcpdump ./sidecar-dump.pcap

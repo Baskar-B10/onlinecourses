@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-simple-website
+  name: my-simple-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-simple-website
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: my-simple-website
+    spec:
+      containers:
+      - image: docker.io/andreibarbu95/my-simple-website:v1
+        name: my-simple-website
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-simple-website-svc
+spec:
+  selector:
+    app: my-simple-website
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: agic-ingress
+spec:
+  ingressClassName: azure-application-gateway
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: my-simple-website-svc
+            port:
+              number: 80
+        pathType: Exact
