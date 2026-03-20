@@ -1,18 +1,15 @@
+2. understand containers
 Install docker :https://docs.docker.com/engine/install/
 
+4.start with AKS
 AKS pricing: https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/
-
 Aks free account: https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account?icid=azurefreeaccount
-
 Aks pricing calculator: https://azure.microsoft.com/en-us/pricing/calculator/?service=kubernetes-service
-
 Deploy AKS service:https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-powershell
 Inatsll Azure CLI on windows :https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest&tabs=powershell&pivots=winget
 Az.Azure powershell commands:https://www.powershellgallery.com/packages/Az.Aks/7.1.1
 Az.Azure module commands: https://learn.microsoft.com/en-us/powershell/module/az.aks/?view=azps-15.3.0&viewFallbackFrom=azps-10.3.0
-
 docker bridge GitHub:https://github.com/Azure/AKS/issues/3534 
-
 kubectl node shell-https://github.com/kvaps/kubectl-node-shell
 connect to AKS noode:https://learn.microsoft.com/en-us/azure/aks/node-access
 debug kuberneetes nodes with crictl:https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/
@@ -25,6 +22,7 @@ stop and start feature:https://learn.microsoft.com/en-us/azure/aks/start-stop-cl
 deploy and manage services from marketplace:https://learn.microsoft.com/en-us/azure/aks/deploy-marketplace?tabs=azure-portal
 krew:https://krew.sigs.k8s.io/docs/user-guide/quickstart/
 
+5.working with node pool
 use system pools:https://learn.microsoft.com/en-us/azure/aks/use-system-pools?tabs=azure-cli
 node shwll-https://github.com/kvaps/kubectl-node-shell
 node access-https://learn.microsoft.com/en-us/azure/aks/node-access
@@ -43,6 +41,7 @@ use GPU:https://learn.microsoft.com/en-us/azure/aks/use-nvidia-gpu?tabs=add-ubun
 node pool snapshot:https://learn.microsoft.com/en-us/azure/aks/node-pool-snapshot
 resize node pool:https://learn.microsoft.com/en-us/azure/aks/resize-node-pool?tabs=azure-cli
 
+6.Networking
 Kubernet network basic:https://learn.microsoft.com/en-us/azure/aks/concepts-network#kubenet-basic-networking
 configure:https://learn.microsoft.com/en-us/azure/aks/configure-kubenet
 CNI basics:https://learn.microsoft.com/en-us/azure/aks/concepts-network#azure-cni-advanced-networking
@@ -60,18 +59,21 @@ limit traffic:https://learn.microsoft.com/en-us/azure/aks/limit-egress-traffic?p
 protect firewall:https://learn.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service
 http proxy support:https://learn.microsoft.com/en-us/azure/aks/http-proxy?pivots=azure-cli
 
+7.Types of cluster
 azure vnet config:https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration
 api server authorize:https://learn.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges?pivots=azure-cli
 api server with vnet:https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration
 private cluster:https://learn.microsoft.com/en-us/azure/aks/private-clusters
 acess private cluster:https://learn.microsoft.com/en-us/azure/aks/access-private-cluster
 
+8.Aks managed with Entra
 enable login:https://learn.microsoft.com/en-us/azure/aks/enable-authentication-microsoft-entra-id
 azure rbac:https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?tabs=azure-cli
 custom role:https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?tabs=azure-cli#create-custom-roles-definitions
 practice rbac:https://learn.microsoft.com/en-us/azure/aks/azure-ad-rbac?tabs=portal
 local accounts:https://learn.microsoft.com/en-us/azure/aks/enable-authentication-microsoft-entra-id#disable-local-accounts
 
+9.Securities and Identities
 managed identity:https://learn.microsoft.com/en-us/azure/aks/use-managed-identity
 service principle:https://learn.microsoft.com/en-us/azure/aks/kubernetes-service-principal?tabs=azure-cli
 https://learn.microsoft.com/en-us/azure/aks/kubernetes-service-principal?tabs=azure-cli&pivots=azure-cli
@@ -91,15 +93,72 @@ enable defender profile:https://learn.microsoft.com/en-us/azure/defender-for-clo
 apparmor in azure:https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-cluster-security?tabs=azure-cli#app-armor
 seccomp in azure:https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-cluster-security?tabs=azure-cli#secure-computing
 
+10.scaling
+resource reservation :https://learn.microsoft.com/en-us/azure/aks/core-aks-concepts#resource-reservations
+kubectl command:https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
+maunly scable:https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli
+scale down mode:https://learn.microsoft.com/en-us/azure/aks/scale-down-mode
+HPA walkthrough:https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+VPA https://learn.microsoft.com/en-us/azure/aks/vertical-pod-autoscaler
+Autoscalar:https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler?tabs=azure-cli
+virtual nodes:https://learn.microsoft.com/en-us/azure/aks/virtual-nodes
+Keda in AKs:https://learn.microsoft.com/en-us/azure/aks/keda-about
 
+11.storage
+azure storage:https://learn.microsoft.com/en-us/azure/aks/concepts-storage
+dynamic create azue disk:https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes
+volume snapshots:https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers?pivots=azure-disks#volume-snapshots
+resize size:https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers#resize-a-persistent-volume-without-downtime
+statiscallly create files:https://learn.microsoft.com/en-us/azure/aks/create-volume-azure-files#create-an-azure-file-share
+create custom storage class:https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers#create-a-custom-storage-class
+dynamic to stateful:https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers?tabs=NFS&pivots=azure-disks#using-a-statefulset
+azure net app:https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction
+storage hierarchy:https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy
+netapp files toplogy:https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-network-topologies
+compare files and netapp files:https://learn.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison
+provision:https://learn.microsoft.com/en-us/azure/aks/azure-netapp-files
+https://learn.microsoft.com/en-us/azure/aks/azure-netapp-files
+astra triend:https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html
 
+12.monitor and troubleshooting
+Aks diagontics:https://learn.microsoft.com/en-us/azure/aks/aks-diagnostics
+azure status:https://azure.status.microsoft/en-us/status
+enable monitoring:https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=azure-cli
+kuberneetes monitoring overview:https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-overview
+metric rule alerts:https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-metric-alerts?tabs=portal
+collect promethus:https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable.md?tabs=azure-portal#enable-prometheus-and-grafana
+https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli
+capture tcp:https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/logs/capture-tcp-dump-linux-node-aks
+tcp dump:https://github.com/amjadaljunaidi/tcpdump
+capture tcp pod level:https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/logs/packet-capture-pod-level
+cbl mariner:https://mcr.microsoft.com/en-us/product/cbl-mariner/base/core/about
 
+13. Upgrade AKS cluster
+supported kuberneetes version:https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli
+aks release notes:https://github.com/Azure/AKS/releases
+upgrade aks:https://learn.microsoft.com/en-us/azure/aks/upgrade-options?tabs=azure-cli
+auto upgrade feature:https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-cluster?tabs=azure-cli
+planned maintenance :https://learn.microsoft.com/en-us/azure/aks/planned-maintenance?tabs=azure-cli
 
+14. Integrate with ACR
+azure RBAC method:https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
+kuberneetes pull secret:https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line
+private ACR:https://learn.microsoft.com/en-us/azure/container-registry/container-registry-private-link
 
+15. Ingress controller
+AGIC in AKS:https://learn.microsoft.com/en-us/azure/application-gateway/ingress-controller-overview
+ngnix ingress controller:https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/load-bal-ingress-c/create-unmanaged-ingress-controller?tabs=azure-cli
+TLS in ingress controller:https://learn.microsoft.com/en-us/previous-versions/azure/aks/ingress-tls?tabs=azure-cli
 
+16.API Gateway
+api gateway docs:https://gateway-api.sigs.k8s.io/
+containers:https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/
+release notes:https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/alb-controller-release-notes
+deploy app:https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller-addon?tabs=azure-cli%2Cazure-cli2
+create app:https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/quickstart-create-application-gateway-for-containers-byo-deployment?tabs=existing-vnet-subnet
+https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/quickstart-create-application-gateway-for-containers-managed-by-alb-controller?tabs=new-subnet-aks-vnet
 
-
-
-
-
-
+17. High Avaiability
+free standard tiers:https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers
+high availability zones:https://learn.microsoft.com/en-us/azure/aks/reliability-availability-zones-configure
+front door overview:https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview
