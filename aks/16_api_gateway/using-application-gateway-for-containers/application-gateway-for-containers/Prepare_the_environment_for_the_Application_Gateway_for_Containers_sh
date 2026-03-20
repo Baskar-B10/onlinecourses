@@ -1,0 +1,31 @@
+--#!/bin/bash
+#Prepare the environment for the Application Gateway for Containers
+AKS_NAME='aks-agc'
+RESOURCE_GROUP='aks-agc-rg'
+
+MC_RESOURCE_GROUP=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -o tsv)
+CLUSTER_SUBNET_ID=$(az vmss list --resource-group $MC_RESOURCE_GROUP --query '[0].virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].subnet.id' -o tsv)
+read -d '' VNET_NAME VNET_RESOURCE_GROUP VNET_ID <<< $(az network vnet show --ids $CLUSTER_SUBNET_ID --query '[name, resourceGroup, id]' -o tsv)
+
+SUBNET_ADDRESS_PREFIX='10.225.0.0/24'
+ALB_SUBNET_NAME='subnet-alb' #The subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
+az network vnet subnet create \
+  --resource-group $VNET_RESOURCE_GROUP \
+  --vnet-name $VNET_NAME \
+  --name $ALB_SUBNET_NAME \
+  --address-prefixes $SUBNET_ADDRESS_PREFIX \
+  --delegations 'Microsoft.ServiceNetworking/trafficControllers'
+ALB_SUBNET_ID=$(az network vnet subnet show --name $ALB_SUBNET_NAME --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query '[id]' --output tsv)
+
+IDENTITY_RESOURCE_NAME='azure-alb-identity'
+
+MC_RESOURCE_GROUP=$(az aks show --name $AKS_NAME --resource-group $RESOURCE_GROUP --query "nodeResourceGroup" -otsv | tr -d '\r')
+
+mcResourceGroupId=$(az group show --name $MC_RESOURCE_GROUP --query id -otsv)
+principalId=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)
+
+# Delegate AppGw for Containers Configuration Manager role to AKS Managed Cluster RG
+az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $mcResourceGroupId --role "AppGw for Containers Configuration Manager" 
+
+# Delegate Network Contributor permission for join to association subnet
+az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $ALB_SUBNET_ID --role "Network Contributor"
